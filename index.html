@@ -5,11 +5,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="/css/normalize.css">
+
+    <!-- CSS Personalizado -->
     <link rel="stylesheet" href="/css/style.css">
 
-    <title>Document</title>
+    <title>CRUD Vanilla JS</title>
 </head>
-<body>
+<body class="bg-dark">
+    <!-- Alert -->
+    <div class="alert-content">
+        <div class="alert alert-success d-none"role="alert" id="alert">
+        Registro Guardaro
+    </div>
+    </div>
     
+
+
+    <div class="principal-title">
+        Ingreso de datos
+    </div>
+
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <!-- Modal -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form id="formulario">
+                        <div class="form-group">
+                          <label for="titulo">Titulo de la tarea</label>
+                          <input type="text" class="form-control" id="titulo" placeholder="Titulo">
+                          <small id="txtErrorTitulo" class="text-danger form-text d-none"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="progreso">Progreso</label>
+                          <select class="form-control" id="progreso">
+                            <option>Sin empezar</option>
+                            <option>En curso</option>
+                            <option>Terminado</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="dificultad">Difucultad</label>
+                          <select multiple class="form-control" id="dificultad">
+                            <option selected>Facil</option>
+                            <option>Medio</option>
+                            <option>Dificil</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="descripcion">Descripcion de la tarea</label>
+                          <textarea class="form-control" id="descripcion" rows="3"></textarea>
+                          <small id="txtErrorDescripcion" class="text-danger form-text d-none"></small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close" data-dismiss="modal">Close</button>
+                <button type="button" id="btnAgregar" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- Script principal -->
+    <script type="module" src="/js/app.js"></script>
+    <!-- Script para la validacion del formulario -->
+    <script type="module" src="/js/validacion-formulario.js"></script>
+
 </body>
 </html>

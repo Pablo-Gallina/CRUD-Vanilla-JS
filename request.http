@@ -1,0 +1,14 @@
+@URL = https://tareas-f45f6-default-rtdb.firebaseio.com/
+###GET
+GET {{URL}}
+
+###POST
+POST {{URL}}/tareas.json
+Content-Type: application/json
+
+{
+    "titulo": "Tarea",
+    "progreso": "En Progreso",
+    "dificultad": "Dificil",
+    "descripcion": "Mi descripcion"
+}

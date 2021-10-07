@@ -1,0 +1,41 @@
+.principal-title{
+    color:#fff;
+    background-color: transparent;
+    padding: 10px 10px;
+}
+
+.success {
+    border-color: #2ecc71 !important;
+    background-color: #f6fff9;
+}
+ 
+.error {
+    border-color: #fd5d93  !important;
+    background-color: #fff4f7 
+}
+
+.nombres p {
+    text-transform: lowercase;
+}
+
+.nombres p:first-letter {
+    text-transform: uppercase;
+}
+
+.alert{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    transition: opacity .3s;
+}
+
+.alert-content{
+    width: 100vw;
+    position:fixed;
+    top:2%;
+}
+
+.transparente{
+    opacity: 0;
+}
+
