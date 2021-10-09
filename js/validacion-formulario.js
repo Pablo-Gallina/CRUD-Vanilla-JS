@@ -1,7 +1,8 @@
 import {enviarDatos} from "./app.js"
 
 const BTN_AGREGAR = document.getElementById("btnAgregar");
-const BTN_CLOSE = document.getElementById("close")
+const BTN_CLOSE = document.getElementById("close");
+const BTN_RESET = document.getElementById("btnReset");
 let titulo = document.getElementById("titulo");
 let progreso = document.getElementById("progreso");
 let Dificultad = document.getElementById("dificultad");
@@ -46,6 +47,11 @@ function mostrarAlerta(){
     setTimeout(() => {
         alert.classList.add("d-none");
     }, 4000);
+
+    //Resetar el formulario
+    BTN_RESET.click();
+    titulo.classList.remove("success");
+    descripcion.classList.remove("success");
 }
 //Validacion de todos los campos del formulario
 function validaciones(){

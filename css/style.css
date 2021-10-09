@@ -39,3 +39,28 @@
     opacity: 0;
 }
 
+/*Badge*/
+.bg-amarillo{
+    background-color:rgb(255, 226, 145);
+    color: rgb(37, 37, 37)
+}
+
+.bg-naranja{
+    background-color:rgb(255, 171, 123);
+    color: rgb(37, 37, 37)
+}
+
+.bg-rojo{
+    background-color: rgb(255, 169, 169);
+    color: rgb(37, 37, 37)
+}
+
+.bg-azul{
+    background-color: rgb(163, 226, 255);
+    color: rgb(37, 37, 37);
+}
+
+.bg-verde{
+    background-color: rgb(191, 255, 191);
+    color: rgb(37, 37, 37)
+}

@@ -34,13 +34,26 @@ function cargarDatos() {
 //Funcion para cargar los datos a la tabla
 function setDatosTabla(){
   const TAREAS_RENDER = Object.values(tareas)
-     .map((tarea, indice) => `
+     .map((tarea, index) => `
             <tr>
-              <th scope="row">${indice+1}</th>
+              <th scope="row">${index+1}</th>
               <td>${tarea.titulo}</td>
-              <td>${tarea.progreso}</td>
-              <td>${tarea.dificultad}</td>
-              <td>${tarea.descripcion}</td>
+
+              <!-- Operador ternario para validar los estilos del badge -->
+              <td><span class="badge rounded-pill 
+                ${tarea.progreso=='Terminado' ? 'bg-verde' : tarea.progreso=='Sin empezar' ? 'bg-rojo' : tarea.progreso=='En curso' ? 'bg-amarillo' : '' } 
+                pl-2 pr-2">${tarea.progreso}</span></td>
+
+              <td><span class="badge rounded-pill 
+              ${tarea.dificultad=='Facil' ? 'bg-amarillo' : tarea.dificultad=='Medio' ? 'bg-naranja' : tarea.dificultad=='Dificil' ? 'bg-rojo' : '' } 
+              pl-2 pr-2">${tarea.dificultad}</span></td>
+
+
+              <td>
+              
+                ${tarea.descripcion}
+              
+              </td>              
             </tr>
           `)
      .join("");
