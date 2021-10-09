@@ -88,11 +88,28 @@ function setDatosTabla(){
    botonesEditar = document.getElementsByClassName('editar');
  
    Array.from(botonesEliminar).forEach(botonEliminar => {
-     botonEliminar.onclick = eliminarTarea;
+     botonEliminar.onclick = sweetAlertDelete;
    });
    Array.from(botonesEditar).forEach(botonEditar => {
      botonEditar.onclick = editarTarea;
    });
+}
+
+//Sweet alert
+function sweetAlertDelete(e){
+  Swal.fire({
+    title: 'Estas seguro?',
+    text: "El registro se eliminara permanentemente!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Si, Eliminar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      eliminarTarea(e);
+    }
+  })
 }
 
 //Eliminar una tarea "DELETE"
