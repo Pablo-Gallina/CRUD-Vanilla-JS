@@ -77,8 +77,8 @@ function setDatosTabla(){
               </td>
 
               <td>
-                <button type="button" data-indice=${tarea.id} class="btn btn-outline-warning editar">Editar</button>         
-                <button type="button" data-indice=${tarea.id} class="btn btn-outline-danger eliminar">Eliminar</button>
+                <button type="button" data-indice=${tarea.id} class="btn btn-outline-warning editar mb-1">Editar</button>         
+                <button type="button" data-indice=${tarea.id} class="btn btn-outline-danger eliminar mb-1">Eliminar</button>
               </td>
             </tr>
           `)
