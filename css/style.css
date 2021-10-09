@@ -2,6 +2,8 @@
     color:#fff;
     background-color: transparent;
     padding: 10px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .success {

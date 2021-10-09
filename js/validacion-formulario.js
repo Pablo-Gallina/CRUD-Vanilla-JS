@@ -1,6 +1,5 @@
 import {enviarDatos} from "./app.js"
 
-const BTN_AGREGAR = document.getElementById("btnAgregar");
 const BTN_CLOSE = document.getElementById("close");
 const BTN_RESET = document.getElementById("btnReset");
 let titulo = document.getElementById("titulo");

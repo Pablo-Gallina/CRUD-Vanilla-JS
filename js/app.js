@@ -2,6 +2,8 @@ import {datos, mostrarAlerta} from "./validacion-formulario.js"
 
 const API = 'https://tareas-f45f6-default-rtdb.firebaseio.com/'
 const TAB_TAREAS = document.getElementById("tabla-tareas");
+
+const BTN_MODAL = document.getElementById("btnModal");
 let tareas = [];
 let botonesEliminar = null;
 let botonesEditar = null;
@@ -89,10 +91,11 @@ function setDatosTabla(){
      botonEliminar.onclick = eliminarTarea;
    });
    Array.from(botonesEditar).forEach(botonEditar => {
-     //botonEditar.onclick = editarUnUsuario;
+     botonEditar.onclick = editarTarea;
    });
 }
 
+//Eliminar una tarea "DELETE"
 function eliminarTarea(e) {
   e.preventDefault(); //Capturar el evento
   const ID = e.target.dataset.indice
@@ -107,6 +110,24 @@ function eliminarTarea(e) {
       cargarDatos(); //Refresacar la lista
       mostrarAlerta('alert-danger', 'Registro Eliminado');
     })
+}
+
+//Editar una tarea "PUT"
+function editarTarea(e) {
+  BTN_MODAL.click()
+  /*e.preventDefault(); //Capturar el evento
+  const ID = e.target.dataset.indice
+  console.log(e.target.dataset.indice);
+  //DELETE {{URL}}/tareas/-MlROXUFQTjGrbVII8nJ.json
+  fetch(`${API}/tareas/${ID}.json`, { //Mandarle el id segun el target dataset dado y la propiedad indice, esto lo trae la variable e
+      method: 'DELETE',
+    })
+    .then((response) => response.json())
+    .then(respuestaJson=>{
+      console.log('respuestaJson', respuestaJson)
+      cargarDatos(); //Refresacar la lista
+      mostrarAlerta('alert-danger', 'Registro Eliminado');
+    })*/
 }
 
 
