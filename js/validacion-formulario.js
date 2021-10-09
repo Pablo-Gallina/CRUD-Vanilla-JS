@@ -88,6 +88,5 @@ descripcion.addEventListener("keyup", () => {
 });
 //*********************************Fin Validaciones de los inputs */
 
-//*********************************Formato JSON para gurdar datos */
 
 export {datos}

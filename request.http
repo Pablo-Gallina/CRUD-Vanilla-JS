@@ -1,6 +1,6 @@
 @URL = https://tareas-f45f6-default-rtdb.firebaseio.com/
 ###GET
-GET {{URL}}
+GET {{URL}}/tareas.json
 
 ###POST
 POST {{URL}}/tareas.json
