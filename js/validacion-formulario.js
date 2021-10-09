@@ -27,7 +27,7 @@ function validarFormulario() {
             "dificultad": dificultad.value,
             "descripcion": descripcion.value
         }
-        mostrarAlerta();
+        mostrarAlerta('alert-success', 'Registro Guardado');
         BTN_CLOSE.click();
         enviarDatos();
     }
@@ -37,16 +37,19 @@ function validarFormulario() {
 
 
 //Function, mostrar la notificacion
-function mostrarAlerta(){
+function mostrarAlerta(clase, mensaje){
+    alert.classList.add(clase);
+    alert.classList.remove(clase=='alert-success' ? 'alert-danger' : 'alert-success');
     alert.classList.remove("transparente");
     alert.classList.remove("d-none");
+    alert.innerHTML = mensaje;
 
     setTimeout(() => {
         alert.classList.add("transparente");
-    }, 3700);
+    }, 2700);
     setTimeout(() => {
         alert.classList.add("d-none");
-    }, 4000);
+    }, 3000);
 
     //Resetar el formulario
     BTN_RESET.click();
@@ -95,4 +98,4 @@ descripcion.addEventListener("keyup", () => {
 //*********************************Fin Validaciones de los inputs */
 
 
-export {datos}
+export {datos, mostrarAlerta}

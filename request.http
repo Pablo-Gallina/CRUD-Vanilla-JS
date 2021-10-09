@@ -12,3 +12,6 @@ Content-Type: application/json
     "dificultad": "Dificil",
     "descripcion": "Mi descripcion"
 }
+
+###DELETE
+DELETE {{URL}}/tareas/-MlROXUFQTjGrbVII8nJ.json
