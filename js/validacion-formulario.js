@@ -20,6 +20,7 @@ BTN_MODAL.onclick = () => {
     BTN_RESET.click();
     titulo.classList.remove("success");
     descripcion.classList.remove("success"); 
+    btnAgregar.innerHTML = "Crear"
 }
 //Funcion para la validacion del formulario
 function validarFormulario() {
@@ -118,6 +119,7 @@ function ObtenerTarea(e){
             "data":respuestaJson
           };
         accionRegistrar = 'PUT'
+        btnAgregar.innerHTML = "Editar"
         setDatos();
       })
   }
