@@ -15,7 +15,12 @@ var datos = {}
 
 //Clic sobre el boton agregar para validar formulario
 btnAgregar.onclick = validarFormulario
-BTN_MODAL.onclick = () => { accionRegistrar='POST' }
+BTN_MODAL.onclick = () => { 
+    accionRegistrar='POST'; 
+    BTN_RESET.click();
+    titulo.classList.remove("success");
+    descripcion.classList.remove("success"); 
+}
 //Funcion para la validacion del formulario
 function validarFormulario() {
     let formularioCorrecto = validaciones() //Si todos los inputs tienen informacion correctoa, resultado sera true, sino algun input tiene informacion incorrecto, resultado sera false
