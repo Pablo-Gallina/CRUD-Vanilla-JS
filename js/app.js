@@ -1,17 +1,19 @@
-import {datos, mostrarAlerta} from "./validacion-formulario.js"
+import {datos, mostrarAlerta, titulo, progreso, dificultad, descripcion, ObtenerTarea, tarea} from "./validacion-formulario.js"
 
-const API = 'https://tareas-f45f6-default-rtdb.firebaseio.com/'
+const API = 'https://tareas-f45f6-default-rtdb.firebaseio.com/';
 const TAB_TAREAS = document.getElementById("tabla-tareas");
 
 const BTN_MODAL = document.getElementById("btnModal");
-let tareas = [];
+let tareas = []; //Objeto para todas las tareas
 let botonesEliminar = null;
 let botonesEditar = null;
 
 //Registrar dato "POST"
-function enviarDatos() {
-    fetch(`${API}/tareas.json`, {
-        method: 'POST', // or 'PUT' sin esta propiedad, el valor por defecto sería el GET
+function enviarDatos(method) {
+    //let datosRegistrar = method=='POST' ? datos : method=='PUT' ? tarea : '';
+    let url = method=='POST' ? `${API}/tareas.json` : method=='PUT' ? `${API}/tareas/${tarea.id}.json` : '';
+    fetch(url, {
+        method: method, // or 'PUT' sin esta propiedad, el valor por defecto sería el GET
         headers: {
           'Content-Type': 'application/json',
         },
@@ -43,8 +45,6 @@ function setDatosTabla(){
   const TAREAS_DATA = []
 
   for (let i = 0; i < SIZE_ARRAY; i++) {
-    const element = TAREAS_KEYS[i];
-
     TAREAS_DATA.push(
       {
         "id": TAREAS_KEYS[i],
@@ -91,7 +91,7 @@ function setDatosTabla(){
      botonEliminar.onclick = sweetAlertDelete;
    });
    Array.from(botonesEditar).forEach(botonEditar => {
-     botonEditar.onclick = editarTarea;
+     botonEditar.onclick = ObtenerTarea;
    });
 }
 
@@ -129,24 +129,18 @@ function eliminarTarea(e) {
     })
 }
 
-//Editar una tarea "PUT"
-function editarTarea(e) {
-  BTN_MODAL.click()
-  /*e.preventDefault(); //Capturar el evento
-  const ID = e.target.dataset.indice
-  console.log(e.target.dataset.indice);
-  //DELETE {{URL}}/tareas/-MlROXUFQTjGrbVII8nJ.json
-  fetch(`${API}/tareas/${ID}.json`, { //Mandarle el id segun el target dataset dado y la propiedad indice, esto lo trae la variable e
-      method: 'DELETE',
-    })
-    .then((response) => response.json())
-    .then(respuestaJson=>{
-      console.log('respuestaJson', respuestaJson)
-      cargarDatos(); //Refresacar la lista
-      mostrarAlerta('alert-danger', 'Registro Eliminado');
-    })*/
+
+
+function setDatos(){
+  console.log(tarea);
+  //tarea.map(i=>console.log(i));
+  //console.log(titulo.value = 'algo');
+  titulo.value = tarea.data.titulo;
+  progreso.value = tarea.data.progreso;
+  dificultad.value = tarea.data.dificultad;
+  descripcion.value = tarea.data.descripcion;
 }
 
 
 cargarDatos();
-export {enviarDatos}
+export {enviarDatos, API, setDatos}

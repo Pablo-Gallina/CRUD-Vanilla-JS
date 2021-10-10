@@ -15,3 +15,14 @@ Content-Type: application/json
 
 ###DELETE
 DELETE {{URL}}/tareas/-MlROXUFQTjGrbVII8nJ.json
+
+###GET 1 TAREA
+PUT {{URL}}/tareas/-MlfOkL7qctnd-W4D3zI.json
+Content-Type: application/json
+
+{
+  "descripcion": "MODIFICADO",
+  "dificultad": "Dificil",
+  "progreso": "Sin empezar",
+  "titulo": "Tarea 1"
+}

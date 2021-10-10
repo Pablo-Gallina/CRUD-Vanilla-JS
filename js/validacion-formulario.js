@@ -1,22 +1,25 @@
-import {enviarDatos} from "./app.js"
+import {enviarDatos, API, setDatos} from "./app.js"
 
+const BTN_MODAL = document.getElementById("btnModal");
 const BTN_CLOSE = document.getElementById("close");
 const BTN_RESET = document.getElementById("btnReset");
 let titulo = document.getElementById("titulo");
 let progreso = document.getElementById("progreso");
-let Dificultad = document.getElementById("dificultad");
+let dificultad = document.getElementById("dificultad");
 let descripcion = document.getElementById("descripcion");
 const alert = document.getElementById("alert");
+let tarea = []; //Objetro para 1 tarea
+var accionRegistrar = '';
 
 var datos = {}
 
 //Clic sobre el boton agregar para validar formulario
 btnAgregar.onclick = validarFormulario
-
+BTN_MODAL.onclick = () => { accionRegistrar='POST' }
 //Funcion para la validacion del formulario
 function validarFormulario() {
     let formularioCorrecto = validaciones() //Si todos los inputs tienen informacion correctoa, resultado sera true, sino algun input tiene informacion incorrecto, resultado sera false
-
+    let mensaje = accionRegistrar=='POST'? 'Registro Guardado' :  'Registro Actualizado';
     console.log(formularioCorrecto, formularioCorrecto === 1);
     //Si el formulario es correcto, mostrar el sweet alert 
     if (formularioCorrecto === 2) {
@@ -26,9 +29,9 @@ function validarFormulario() {
             "dificultad": dificultad.value,
             "descripcion": descripcion.value
         }
-        mostrarAlerta('alert-success', 'Registro Guardado');
+        mostrarAlerta('alert-success', mensaje);
         BTN_CLOSE.click();
-        enviarDatos();
+        enviarDatos(accionRegistrar);
     }
     
     
@@ -96,5 +99,22 @@ descripcion.addEventListener("keyup", () => {
 });
 //*********************************Fin Validaciones de los inputs */
 
+//Obtener 1 tarea "GET"
+function ObtenerTarea(e){
+    BTN_MODAL.click();
+    const ID = e.target.dataset.indice;
+    fetch(`${API}/tareas/${ID}.json`, { //Mandarle el id segun el target dataset dado y la propiedad indice, esto lo trae la variable e
+        method: 'GET',
+      })
+      .then((response) => response.json())
+      .then(respuestaJson=>{
+        tarea={
+            "id": ID,
+            "data":respuestaJson
+          };
+        accionRegistrar = 'PUT'
+        setDatos();
+      })
+  }
 
-export {datos, mostrarAlerta}
+export {datos, mostrarAlerta, titulo, progreso, dificultad, descripcion, ObtenerTarea, tarea}

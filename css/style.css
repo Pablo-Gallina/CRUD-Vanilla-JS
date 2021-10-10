@@ -1,6 +1,7 @@
 body{
     overflow: hidden;
 }
+
 .principal-title{
     color:#fff;
     background-color: transparent;
@@ -39,7 +40,6 @@ body{
     width: 100vw;
     position:fixed;
     top:2%;
-    z-index: -1;
 }
 
 .transparente{
